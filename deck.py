@@ -65,4 +65,4 @@ if(__name__=="__main__"):
     startingDeck.DisplayDeck()
 
 
-print len(startingDeck.value)
+    print len(startingDeck.value)
