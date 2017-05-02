@@ -14,4 +14,3 @@ class Hand:
 		print(self.player1hand)
 		print(self.player2hand)
 		self.firstcard.displayCard()
-Motivation_Check=Hand()
