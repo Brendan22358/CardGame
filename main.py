@@ -1,5 +1,6 @@
 from __future__ import print_function
 from deck import Deck
+
 warDeck=Deck()
 warDeck.Shuffle()
 warDeck.Shuffle()
@@ -14,16 +15,38 @@ temporary2.EmptyDeck()
 player1deck,player2deck = warDeck.Cut()
 test1=player1deck.FindLength()
 test2=player2deck.FindLength()
+player1=raw_input("Enter Player 1's Name\n>")
+print()
+player2=raw_input("Enter Player 2's Name\n>")
+print()
 
 while(test1!=0 and test2!=0):
-
+	
 	player1draw=player1deck.TakeFromBottom()
-	player1draw.displayCard()
+
 	player2draw=player2deck.TakeFromBottom()
-	player2draw.displayCard()
+
 	better1=player1draw.checkRank()
 
 	better2=player2draw.checkRank()
+	userInput1=raw_input("{} hit enter to draw.\n>".format(player1))
+	print()
+	while(userInput1!=""):
+		userInput1=raw_input("{} hit enter to draw.\n>".format(player1))
+		print()
+	if(userInput1==""):
+		print("{} pulled a".format(player1),end=" ")
+		player1draw.displayCard()
+		print()
+	userInput2=raw_input("{} hit enter to draw.\n>".format(player2))
+	print()
+	while(userInput2!=""):
+		userInput2=raw_input("{} hit enter to draw.\n>".format(player2))
+		print()
+	if(userInput2==""):
+		print("{} pulled a".format(player2),end=" ")
+		player2draw.displayCard()
+		print()
 	templen=temporary.FindLength()
 	templen2=temporary2.FindLength()
 
@@ -61,8 +84,12 @@ while(test1!=0 and test2!=0):
 	if(better1==better2):
 		temporary.AddToBottom(player1draw)
 		temporary2.AddToBottom(player2draw)
-
 	test1=player1deck.FindLength()
-	print(test1)
+
 	test2=player2deck.FindLength()
-	print(test2)
+
+	print("The score is {} to {} ({} to {})".format(test1,test2,player1,player2))
+if(test1>test2):
+	print("Congrats {}, you beat {}.".format(player1,player2))
+else:
+	print("Congrats {}, you beat {}.".format(player2,player1))

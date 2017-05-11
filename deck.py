@@ -64,7 +64,7 @@ class Deck:
         self.value = first.value + second.value
     def EmptyDeck(self):
         decklen=self.FindLength()-1
-        print(decklen)
+        
         for i in range (0,decklen,1):
             card=self.value[1]
             self.value.remove(card)
@@ -81,4 +81,3 @@ if(__name__=="__main__"):
     startingDeck.DisplayDeck()
 
 
-    print len(startingDeck.value)
